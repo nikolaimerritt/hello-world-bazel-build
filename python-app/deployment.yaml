@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
       - name: bb-site
-        image: docker-test
+        image: nikolaivaticle/docker-test:1.0.3
+        tag: 1.0.3
         imagePullPolicy: Always
         ports:
         - containerPort: 80
