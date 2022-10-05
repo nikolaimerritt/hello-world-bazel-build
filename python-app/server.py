@@ -9,6 +9,6 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(b'Hello world')
 
-port_num = 30001
+port_num = 80
 httpd = socketserver.TCPServer(('', port_num), Handler)
 httpd.serve_forever()
