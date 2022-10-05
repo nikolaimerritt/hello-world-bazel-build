@@ -13,7 +13,6 @@ load(
 container_repositories()
 
 load("@io_bazel_rules_docker//repositories:deps.bzl", container_deps = "deps")
-
 container_deps()
 
 load(
@@ -22,17 +21,14 @@ load(
 )
 
 ## Python
-
 load(
     "@io_bazel_rules_docker//repositories:repositories.bzl",
     container_repositories = "repositories",
 )
-
 container_repositories()
 
 load(
     "@io_bazel_rules_docker//python3:image.bzl",
     _py_image_repos = "repositories",
 )
-
 _py_image_repos()
