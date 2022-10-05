@@ -1,0 +1,23 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
+load("@io_bazel_rules_docker//container:container.bzl", "container_image")
+
+## Docker Container
+
+cc_library(
+    name = "get-time",
+    srcs = ["get-time.cpp"],
+    hdrs = ["get-time.h"]
+)
+
+cc_binary(
+    name = "main",
+    srcs = ["main.cpp"],
+    deps = [":get-time"]
+)
+
+container_image(
+    name = "image",
+    base = "@alpine_linux_amd64//image",
+    entrypoint = ["/main"],
+    files = [":main"],
+)
