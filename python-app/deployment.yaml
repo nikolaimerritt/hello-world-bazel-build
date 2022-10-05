@@ -17,6 +17,10 @@ spec:
       - name: bb-site
         image: docker-test
         imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
 ---
 apiVersion: v1
 kind: Service
@@ -28,6 +32,6 @@ spec:
   selector:
     bb: web
   ports:
-  - containerPort: 80
-    name: http
-    protocol: TCP
+  - protocol: TCP
+    port: 80
+    targetPort: http
