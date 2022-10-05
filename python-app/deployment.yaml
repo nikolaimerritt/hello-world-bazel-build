@@ -16,7 +16,7 @@ spec:
       containers:
       - name: bb-site
         image: docker-test
-        imagePullPolicy: Never
+        imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service
